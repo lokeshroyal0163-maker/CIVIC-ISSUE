@@ -215,17 +215,17 @@ app.get('/my-issues', async (req, res) => {
   }
 });
 
+// Middleware to check authentication for protected routes
 function requireAuth(req, res, next) {
   if (!req.session.userId) {
     return res.redirect('/login.html');
   }
   next();
 }
-app.use((req, res, next) => {
-  res.setHeader("Cache-Control", "no-store");
-  next();
-});
-await User.findByIdAndUpdate(req.user._id, { username, email });
+
+
+
+// Protected routes
 app.get('/main.html', requireAuth, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'main.html'));
 });
@@ -242,10 +242,12 @@ app.get('/view-issues.html', requireAuth, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'view-issues.html'));
 });
 
+// Root route
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Start server
 async function startServer() {
   await connectDB();
   app.listen(PORT, () => {
