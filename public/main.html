@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Civic Reporter - Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+body {
+margin: 0;
+font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+background-color: rgb(0, 77, 64);
+color: white;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 1rem 2rem;
+position: relative;
+}
+
+.logo {
+font-size: 1.5rem;
+font-weight: bold;
+}
+
+.hamburger {
+font-size: 1.8rem;
+cursor: pointer;
+display: none;
+}
+
+.nav-links {
+list-style: none;
+display: flex;
+gap: 1.5rem;
+margin: 0;
+padding: 0;
+}
+
+.nav-links li a {
+text-decoration: none;
+color: white;
+font-weight: 500;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+.hamburger {
+display: block;
+}
+
+.nav-links {
+display: none;
+flex-direction: column;
+background-color: #004d40;
+position: absolute;
+top: 60px;
+right: 0;
+width: 100%;
+text-align: center;
+padding: 1rem 0;
+}
+
+.nav-links.show {
+display: flex;
+}
+}
+
+/* Hero section */
+.hero {
+background: url('bg.jpg') center/cover no-repeat;
+height: 300px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+text-align: center;
+}
+
+.hero-overlay {
+background-color: rgba(0, 0, 0, 0.5);
+padding: 2rem;
+width: 100%;
+}
+
+.dashboard {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 2rem;
+padding: 2rem;
+}
+
+.card {
+background: #f2f2f2;
+padding: 1.5rem;
+border-radius: 10px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+text-align: center;
+}
+
+.card h2 {
+margin-bottom: 0.5rem;
+}
+
+.btn {
+display: inline-block;
+margin-top: 1rem;
+background-color: #004d40;
+color: white;
+padding: 0.5rem 1rem;
+border-radius: 5px;
+text-decoration: none;
+}
+
+footer {
+text-align: center;
+padding: 1rem;
+background-color: #004d40;
+color: white;
+margin-top: 2rem;
+}
+</style>
+</head>
+<body>
+
+<header class="navbar">
+<div class="logo">Civic Reporter</div>
+<div class="hamburger" id="hamburger">&#9776;</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="main.html">Dashboard</a></li>
+<li><a href="profile.html">Profile</a></li>
+<li><a href="report.html">Report an Issue</a></li>
+<li><a href="view-issues.html">View Issues</a></li>
+<li><a href="contact.html">Contact & Help</a></li>
+<li><a href="/logout">Logout</a></li>
+</ul>
+</header>
+
+<section class="hero">
+<div class="hero-overlay">
+<div class="hero-content">
+<h1>Welcome to the Civic Issue Reporter</h1>
+<p>Empowering citizens to report and resolve local issues quickly and effectively.</p>
+</div>
+</div>
+</section>
+
+<section class="dashboard">
+<div class="card">
+<h2>👤 Your Profile</h2>
+<p>Check and update your personal details, address, and contact info.</p>
+<a href="profile.html" class="btn">Go to Profile</a>
+</div>
+<div class="card">
+<h2>📝 Report an Issue</h2>
+<p>Submit civic complaints such as road damage, water problems, and waste issues.</p>
+<a href="report.html" class="btn">Report Now</a>
+</div>
+<div class="card">
+<h2>📋 View Your Issues</h2>
+<p>Track the status and progress of all your reported issues in one place.</p>
+<a href="view-issues.html" class="btn">View Issues</a>
+</div>
+<div class="card">
+<h2>📞 Help & Support</h2>
+<p>Contact officials, find support numbers, or raise feedback and suggestions.</p>
+<a href="contact.html" class="btn">Get Support</a>
+</div>
+</section>
+
+<footer>
+<p>&copy; 2025 Government of AP | Civic Issue Reporter</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+navLinks.classList.toggle("show");
+});
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Report an Issue</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg">
+<nav class="navbar">
+<div class="logo">Civic Reporter</div>
+<ul class="nav-links">
+<li><a href="main.html">Dashboard</a></li>
+<li><a href="profile.html">Profile</a></li>
+<li><a href="report-issue.html">Report Issue</a></li>
+<li><a href="view-issues.html">View Issues</a></li>
+<li><a href="contact.html">Contact & Help</a></li>
+<li><a href="#" class="logout-btn">Logout</a></li>
+</ul>
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</nav>
+<div class="main-content">
+<h1>Report a New Issue</h1>
+<form action="/report-issue" method="POST" enctype="multipart/form-data">
+<input type="text" name="title" placeholder="Issue Title" required />
+<select name="category" required>
+<option value="">Select Category</option>
+<option value="Road/Infrastructure">Road/Infrastructure</option>
+<option value="Water Supply">Water Supply</option>
+<option value="Electricity">Electricity</option>
+<option value="Waste Management">Waste Management</option>
+<option value="Street Lighting">Street Lighting</option>
+<option value="Public Safety">Public Safety</option>
+<option value="Other">Other</option>
+</select>
+<textarea name="description" placeholder="Describe the issue in detail..." required></textarea>
+<input type="text" name="location" placeholder="Location" required />
+<input type="file" name="image" accept="image/*" />
+<button type="submit">Submit Report</button>
+</form>
+</div>
+<script>
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+hamburger.addEventListener("click", () => {
+ navLinks.classList.toggle("active");
+});
+
+</script>
+
+</body>
+</html>
